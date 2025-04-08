@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "contour.h"
-#include "simplification_contours.h"
-#include "postscript.h"
+#include "../contour.h"
+#include "../simplification_contours.h"
+#include "../postscript.h"
 
 /* Arg1: fichier.pbm ; Arg2: fichier.eps ; Arg3: mode stroke ou fill ; Arg4: distance-seuil */
 int main(int argc, char **argv){

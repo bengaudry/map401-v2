@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "contour.h"
+#include "../contour.h"
 
 int main(int argc, char **argv) {
     //Point pixel_depart;

@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "simplification_bezier.h"
-#include "contour.h"
-#include "bezier.h"
+#include "../simplification_bezier.h"
+#include "../contour.h"
+#include "../bezier.h"
 
 int main() {
     Contour C;

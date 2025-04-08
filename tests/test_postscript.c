@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "postscript.h"
-#include "contour.h"
+#include "../postscript.h"
+#include "../contour.h"
 
 /* Arg1: fichier.pbm ; Arg2: fichier.eps ; Arg3: mode stroke ou fill */
 int main(int argc, char **argv){

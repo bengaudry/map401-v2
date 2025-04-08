@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "contour.h"
-#include "image.h"
-#include "geometrie.h"
+#include "../contour.h"
+#include "../image.h"
+#include "../geometrie.h"
 
 int main(int argc, char **argv) {
     Image I = lire_fichier_image(argv[1]);
