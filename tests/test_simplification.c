@@ -8,7 +8,11 @@
 int main(int argc, char **argv){
     int nb_contours, nb_seg_init, nb_seg_simpl;
     Cellule_Liste_Liste_Point *Cel_init, *Cel_simpl;
-    double d = atoi(argv[4]);
+
+    // Récupération de distance seuil
+    char **endptr = NULL;
+    double d = strtod(argv[4], endptr);
+    
     Image I = lire_fichier_image(argv[1]);
 
     //liste de contours avant simplification
