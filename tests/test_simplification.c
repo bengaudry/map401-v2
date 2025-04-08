@@ -10,7 +10,7 @@ int main(int argc, char **argv){
     Cellule_Liste_Liste_Point *Cel_init, *Cel_simpl;
 
     // Récupération de distance seuil
-    char **endptr;
+    char **endptr = NULL;
     double d = strtod(argv[4], endptr);
     
     Image I = lire_fichier_image(argv[1]);
