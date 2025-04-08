@@ -4,6 +4,9 @@
 #include "bezier.h"
 #include "simplification_bezier.h"
 
+/* Extrait le nom d'un fichier de son chemin */
+char* extraire_nom_fichier(char* chemin_fichier);
+
 /* crée un fichier postcript à partir d'un tableau de segments */
 /* mode est un entier: 1 pour le contour; 2 pour le remplissage */
 void sortie_format_postcript(char *nom_fichier, Tableau_Point T, Image I, char *mode);
