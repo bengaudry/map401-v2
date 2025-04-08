@@ -23,6 +23,11 @@ int main (int argc, char **argv) {
 
     I = lire_fichier_image(argv[1]);
     char *nom_sortie = extraire_nom_fichier(argv[1]);
+    char nom_sortie_simple[50];
+    strcpy(nom_sortie_simple, nom_sortie);
+    strcat(nom_sortie_simple, "_simple");
+    strcat(nom_sortie, ".eps");
+    strcat(nom_sortie_simple, ".eps");
 
     printf("Image : %s (%dx%d)\n", nom_sortie, largeur_image(I), hauteur_image(I));
 
@@ -63,22 +68,19 @@ int main (int argc, char **argv) {
             seq_contours_simple = simplification_mult_contours(seq_contours, d);
             // Export au format eps
             sortie_format_postcript_mult_contours(nom_sortie, seq_contours, I, mode);        // export de l'image de base
-            strcat(nom_sortie, "_simple");
-            sortie_format_postcript_mult_contours(nom_sortie, seq_contours_simple, I, mode);        // export de l'image de base
+            sortie_format_postcript_mult_contours(nom_sortie_simple, seq_contours_simple, I, mode);        // export de l'image de base
             break;
         case 2:
             seq_contours_bezier2 = simplification_bezier2(seq_contours, d);
             // Export au format eps
             sortie_format_postcript_mult_contours(nom_sortie, seq_contours, I, mode);        // export de l'image de base
-            strcat(nom_sortie, "_simple");
-            sortie_format_postcript_bezier2(nom_sortie, seq_contours_bezier2, I, mode);
+            sortie_format_postcript_bezier2(nom_sortie_simple, seq_contours_bezier2, I, mode);
             break;
         case 3:
             seq_contours_bezier3 = simplification_bezier3(seq_contours, d);
             // Export au format eps
             sortie_format_postcript_mult_contours(nom_sortie, seq_contours, I, mode);        // export de l'image de base
-            strcat(nom_sortie, "_simple");
-            sortie_format_postcript_bezier3(nom_sortie, seq_contours_bezier3, I, mode);
+            sortie_format_postcript_bezier3(nom_sortie_simple, seq_contours_bezier3, I, mode);
             break;
         default:
             fprintf(stderr, "Choix invalide\n");

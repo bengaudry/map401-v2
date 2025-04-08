@@ -37,7 +37,7 @@ INCLUDEOPTS = -I$(INCDIR)
 COMPILOPTS = -g -Wall $(INCLUDEOPTS)
 
 # liste des executables
-EXECUTABLES = test_image test_geometrie test_contour test_postscript test_mult_contours test_geometrie_distance test_simplification test_simplification_bezier test_postscript_bezier2 test_postscript_bezier3
+EXECUTABLES = main test_image test_geometrie test_contour test_postscript test_mult_contours test_geometrie_distance test_simplification test_simplification_bezier test_postscript_bezier2 test_postscript_bezier3
 
 
 #############################################################################
