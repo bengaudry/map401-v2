@@ -3,6 +3,17 @@
 #include <string.h>
 #include "postscript.h"
 
+char* extraire_nom_fichier(char* chemin_fichier) {
+    char *filename = strrchr(chemin_fichier, '/');
+    if (filename) filename++;
+    else filename = chemin_fichier;
+
+    char *dot = strrchr(filename, '.');
+    if (dot) *dot = '\0';
+
+    return filename;
+}
+
 void sortie_format_postcript(char *nom_fichier, Tableau_Point T, Image I, char *mode) {
     FILE *f = fopen(nom_fichier, "w");
     int hauteur = hauteur_image(I);
