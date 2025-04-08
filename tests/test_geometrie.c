@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "geometrie.h"
+#include "../geometrie.h"
 
 int main(void) {
     Point A, B;

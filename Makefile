@@ -185,70 +185,70 @@ test_postscript_bezier3.o : test_postscript_bezier3.c simplification_bezier.h po
 ########################################################
 # regles explicites de creation des executables
 
-test_image : test_image.o image.o 
+test_image : tests/test_image.o image.o 
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_geometrie : test_geometrie.o geometrie.o 
+test_geometrie : tests/test_geometrie.o geometrie.o 
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_contour : test_contour.o contour.o geometrie.o image.o
+test_contour : tests/test_contour.o contour.o geometrie.o image.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_postscript : test_postscript.o postscript.o contour.o geometrie.o image.o simplification_bezier.o bezier.o
+test_postscript : tests/test_postscript.o postscript.o contour.o geometrie.o image.o simplification_bezier.o bezier.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_mult_contours : test_mult_contours.o contour.o geometrie.o image.o
+test_mult_contours : tests/test_mult_contours.o contour.o geometrie.o image.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_geometrie_distance : test_geometrie_distance.o geometrie.o
+test_geometrie_distance : tests/test_geometrie_distance.o geometrie.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_simplification : test_simplification.o simplification_contours.o postscript.o contour.o image.o geometrie.o simplification_bezier.o bezier.o
+test_simplification : tests/test_simplification.o simplification_contours.o postscript.o contour.o image.o geometrie.o simplification_bezier.o bezier.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_simplification_bezier : test_simplification_bezier.o simplification_bezier.o geometrie.o contour.o image.o bezier.o
+test_simplification_bezier : tests/test_simplification_bezier.o simplification_bezier.o geometrie.o contour.o image.o bezier.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_postscript_bezier2 : test_postscript_bezier2.o simplification_bezier.o postscript.o geometrie.o contour.o image.o bezier.o
+test_postscript_bezier2 : tests/test_postscript_bezier2.o simplification_bezier.o postscript.o geometrie.o contour.o image.o bezier.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@
 	@echo "---------------------------------------------"
 	$(CC) $^ $(LDOPTS) -o $@
 
-test_postscript_bezier3 : test_postscript_bezier3.o simplification_bezier.o postscript.o geometrie.o contour.o image.o bezier.o
+test_postscript_bezier3 : tests/test_postscript_bezier3.o simplification_bezier.o postscript.o geometrie.o contour.o image.o bezier.o
 	@echo ""
 	@echo "---------------------------------------------"
 	@echo "Creation de l'executable "$@

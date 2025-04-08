@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "geometrie.h"
+#include "../geometrie.h"
 
 int main() {
     Point P, A, B;
