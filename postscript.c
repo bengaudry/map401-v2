@@ -158,5 +158,4 @@ void sortie_format_postcript_bezier3(char *nom_fichier, Liste_Contour_Bezier3 LC
   fprintf(f, "showpage\n");
 
   fclose(f);
-
 }
