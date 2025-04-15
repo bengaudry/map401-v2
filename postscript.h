@@ -1,5 +1,6 @@
 #ifndef POSTSCRIPT_H
 #define POSTSCRIPT_H
+
 #include "contour.h"
 #include "bezier.h"
 #include "simplification_bezier.h"
