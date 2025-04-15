@@ -5,7 +5,6 @@ int main(void) {
     Point A, B;
     Vecteur U, V;
 
-
     printf("====== TESTS POINTS ======\n");
 
     A = set_point(4, 2);
