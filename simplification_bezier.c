@@ -219,7 +219,3 @@ Liste_Contour_Bezier3 simplification_bezier3(Liste_Contour LC, double d){
     }
     return LC_B3;
 }
-
-
-
-
