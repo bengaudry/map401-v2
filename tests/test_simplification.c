@@ -5,7 +5,11 @@
 #include "../postscript.h"
 
 /* Arg1: fichier.pbm ; Arg2: fichier.eps ; Arg3: mode stroke ou fill ; Arg4: distance-seuil */
-int main(int argc, char **argv){
+int main(int argc, char **argv) {
+    if (argc != 5) 
+        fprintf(stderr, "Utilisation: %s <chemin_fichier_image> <nom_fichier_sortie> <mode: 'fill' | 'stroke'> <d: distance-seuil>\n", argv[0]),
+        exit(1);
+
     int nb_contours, nb_seg_init, nb_seg_simpl;
     Cellule_Liste_Liste_Point *Cel_init, *Cel_simpl;
 

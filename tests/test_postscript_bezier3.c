@@ -9,6 +9,10 @@ int main(int argc, char **argv){
     Cellule_Liste_Liste_Point *Cel_init;
     Cellule_Liste_Liste_Bezier3 *Cel_simpl;
 
+    if (argc != 5) 
+        fprintf(stderr, "Utilisation: %s <chemin_fichier_image> <nom_fichier_sortie> <mode: 'fill' | 'stroke'> <d: distance-seuil>\n", argv[0]),
+        exit(1);
+
     // Récupération de distance seuil
     char **endptr = NULL;
     double d = strtod(argv[4], endptr);

@@ -9,7 +9,6 @@ int main() {
     Bezier2 B2;
     int n;
 
-
     printf("===== TEST A =====\n");
     C = creer_liste_Point_vide();
     C = ajouter_element_liste_Point(C, set_point(0, 0));
@@ -61,11 +60,5 @@ int main() {
     supprimer_liste_Point(C);
     afficher_bezier2(B2);
 
-
-
     return 0;
 }
-
-
-
-
