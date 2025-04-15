@@ -57,5 +57,4 @@ double calcul_lambda(Point P, Segment S);
 /* renvoie la distance la plus courte entre un point et un segment */
 double distance_segment_point(Point P, Segment S);
 
-
 #endif

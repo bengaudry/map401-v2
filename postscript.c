@@ -3,6 +3,7 @@
 #include <string.h>
 #include "postscript.h"
 
+/* Extrait le nom d'un fichier de son chemin */
 char* extraire_nom_fichier(char* chemin_fichier) {
     char *filename = strrchr(chemin_fichier, '/');
     if (filename) filename++;
@@ -14,14 +15,21 @@ char* extraire_nom_fichier(char* chemin_fichier) {
     return filename;
 }
 
+/* Écris l'en-tete du fichier postscript dans le fichier f */
+void ecrire_entete_postscript(FILE *f, UINT largeur, UINT hauteur) {
+    fprintf(f, "%%!PS-Adobe-3.0 EPSF-3.0\n");
+    fprintf(f, "%%%%BoundingBox: 0 0 %d %d\n\n", largeur, hauteur);
+}
+
+/* crée un fichier postcript à partir d'un tableau de segments */
+/* mode est un entier: 1 pour le contour; 2 pour le remplissage */
 void sortie_format_postcript(char *nom_fichier, Tableau_Point T, Image I, char *mode) {
     FILE *f = fopen(nom_fichier, "w");
     int hauteur = hauteur_image(I);
     int largeur = largeur_image(I);
 
     /* en-tete */
-    fprintf(f, "%%!PS-Adobe-3.0 EPSF-3.0\n");
-    fprintf(f, "%%%%BoundingBox: 0 0 %d %d\n\n", largeur, hauteur);
+    ecrire_entete_postscript(f, largeur, hauteur);
 
     /* corps de l'image */
     fprintf(f, "%lf %lf moveto\n", T.tab[0].x, hauteur-T.tab[0].y);
@@ -32,8 +40,7 @@ void sortie_format_postcript(char *nom_fichier, Tableau_Point T, Image I, char *
     
     if (strcmp(mode, "fill") == 0) {
       fprintf(f, "fill\n\n");
-    }
-    else {
+    } else {
       fprintf(f, "0 0 0 setrgbcolor 0 setlinewidth\n");
       fprintf(f, "stroke\n\n");
     }
@@ -43,6 +50,9 @@ void sortie_format_postcript(char *nom_fichier, Tableau_Point T, Image I, char *
     fclose(f);
 }
 
+/* crée un fichier postscript avec plusieurs contours à partir
+   d'une liste de contours */
+/* mode: "stroke" pour le contour; "fill" pour le remplissage */
 void sortie_format_postcript_mult_contours(char *nom_fichier, Liste_Contour L, Image I, char *mode) {
   FILE *f = fopen(nom_fichier, "w");
   int hauteur = hauteur_image(I);
@@ -52,8 +62,7 @@ void sortie_format_postcript_mult_contours(char *nom_fichier, Liste_Contour L, I
   Tableau_Point T;
 
   /* en-tete */
-  fprintf(f, "%%!PS-Adobe-3.0 EPSF-3.0\n");
-  fprintf(f, "%%%%BoundingBox: 0 0 %d %d\n\n", largeur, hauteur);
+  ecrire_entete_postscript(f, largeur, hauteur);
 
   /* corps de l'image */
   while (cel != NULL) {
@@ -70,8 +79,7 @@ void sortie_format_postcript_mult_contours(char *nom_fichier, Liste_Contour L, I
 
   if (strcmp(mode, "fill") == 0) {
     fprintf(f, "fill\n\n");
-  }
-  else {
+  } else {
     fprintf(f, "0 0 0 setrgbcolor 0 setlinewidth\n");
     fprintf(f, "stroke\n\n");
   }
@@ -82,6 +90,9 @@ void sortie_format_postcript_mult_contours(char *nom_fichier, Liste_Contour L, I
 
 }
 
+/* crée un fichier postscript avec plusieurs contours à partir
+   d'une liste de liste de courbes BEZIER de DEGRE 2 */
+/* mode: "stroke" pour le contour; "fill" pour le remplissage */
 void sortie_format_postcript_bezier2(char *nom_fichier, Liste_Contour_Bezier2 LCB2, Image I, char *mode) {
   FILE *f = fopen(nom_fichier, "w");
   int hauteur = hauteur_image(I);
@@ -91,8 +102,7 @@ void sortie_format_postcript_bezier2(char *nom_fichier, Liste_Contour_Bezier2 LC
   Bezier3 B3;
 
   /* en-tete */
-  fprintf(f, "%%!PS-Adobe-3.0 EPSF-3.0\n");
-  fprintf(f, "%%%%BoundingBox: 0 0 %d %d\n\n", largeur, hauteur);
+  ecrire_entete_postscript(f, largeur, hauteur);
 
   /* corps de l'image */
   while (cel1 != NULL) {
@@ -109,8 +119,7 @@ void sortie_format_postcript_bezier2(char *nom_fichier, Liste_Contour_Bezier2 LC
 
   if (strcmp(mode, "fill") == 0) {
     fprintf(f, "fill\n\n");
-  }
-  else {
+  } else {
     fprintf(f, "0 0 0 setrgbcolor 0 setlinewidth\n");
     fprintf(f, "stroke\n\n");
   }
@@ -118,10 +127,11 @@ void sortie_format_postcript_bezier2(char *nom_fichier, Liste_Contour_Bezier2 LC
   fprintf(f, "showpage\n");
 
   fclose(f);
-
 }
 
-
+/* crée un fichier postscript avec plusieurs contours à partir
+   d'une liste de liste de courbes BEZIER de DEGRE 3 */
+/* mode: "stroke" pour le contour; "fill" pour le remplissage */
 void sortie_format_postcript_bezier3(char *nom_fichier, Liste_Contour_Bezier3 LCB3, Image I, char *mode) {
   FILE *f = fopen(nom_fichier, "w");
   int hauteur = hauteur_image(I);
@@ -131,8 +141,7 @@ void sortie_format_postcript_bezier3(char *nom_fichier, Liste_Contour_Bezier3 LC
   Bezier3 B3;
 
   /* en-tete */
-  fprintf(f, "%%!PS-Adobe-3.0 EPSF-3.0\n");
-  fprintf(f, "%%%%BoundingBox: 0 0 %d %d\n\n", largeur, hauteur);
+  ecrire_entete_postscript(f, largeur, hauteur);
 
   /* corps de l'image */
   while (cel1 != NULL) {
@@ -149,8 +158,7 @@ void sortie_format_postcript_bezier3(char *nom_fichier, Liste_Contour_Bezier3 LC
 
   if (strcmp(mode, "fill") == 0) {
     fprintf(f, "fill\n\n");
-  }
-  else {
+  } else {
     fprintf(f, "0 0 0 setrgbcolor 0 setlinewidth\n");
     fprintf(f, "stroke\n\n");
   }
@@ -158,5 +166,4 @@ void sortie_format_postcript_bezier3(char *nom_fichier, Liste_Contour_Bezier3 LC
   fprintf(f, "showpage\n");
 
   fclose(f);
-
 }

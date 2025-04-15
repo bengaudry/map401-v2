@@ -475,7 +475,3 @@ void ecrire_liste_contour(Liste_Liste_Point L) {
     }
     printf("\nCONTOURS: %d\n", nb);
 }
-
-
-
-

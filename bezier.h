@@ -221,5 +221,4 @@ void ecrire_liste_contour_Bezier2(Liste_Liste_Bezier2 L);
    /* ecrire le contour L a l'ecran */
    void ecrire_liste_contour_Bezier3(Liste_Liste_Bezier3 L);
 
-
 #endif

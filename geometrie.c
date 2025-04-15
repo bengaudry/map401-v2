@@ -8,10 +8,10 @@
 /* Crée le point de coordonées (x, y) */
 Point set_point(double x, double y) {
     Point P;
-
+    
     P.x = x;
     P.y = y;
-
+    
     return P;
 }
 
@@ -33,7 +33,6 @@ double distance_points(Point A, Point B) {
 void affiche_point(char *nom, Point P) {
     printf("%s = (%f, %f)\n", nom, P.x, P.y);
 }
-
 
 
 ////// OPERATIONS SUR LES VECTEURS \\\\\\
@@ -111,10 +110,4 @@ double distance_segment_point(Point P, Segment S) {
     Q = somme_points(S.A, mult_point_scalaire(somme_points(S.B, NegA), y));
     
     return distance_points(Q, P);
-    
 }
-
-
-
-
-

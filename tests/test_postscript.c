@@ -12,6 +12,5 @@ int main(int argc, char **argv){
     sortie_format_postcript_mult_contours(argv[2], L, I, argv[3]);
     ecrire_liste_contour(L);
 
-
     return 0;
 }

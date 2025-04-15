@@ -36,7 +36,6 @@ Contour simplification_douglas_peucker(Tableau_Point C, int j1, int j2, double d
     return L;
 }
 
-
 Liste_Contour simplification_mult_contours(Liste_Contour LC, double d) {
     Tableau_Point T;
     Liste_Point C_simpl;
@@ -54,8 +53,7 @@ Liste_Contour simplification_mult_contours(Liste_Contour LC, double d) {
         //ecrire_contour(C_simpl);
         LCM = ajouter_element_liste_liste_Point(LCM, C_simpl);
         C = C->suiv;
-        
     }
+
     return LCM;
 }
-

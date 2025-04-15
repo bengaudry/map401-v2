@@ -3,7 +3,6 @@
 #include "geometrie.h"
 #include "image.h"
 
-
 /* orientation du robot */
 typedef enum {Nord, Est, Sud, Ouest} Orientation;
 
@@ -147,5 +146,3 @@ void ecrire_contour(Liste_Point L);
 void ecrire_liste_contour(Liste_Liste_Point L);
 
 #endif
-
-
